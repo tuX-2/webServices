@@ -42,7 +42,7 @@ services:
       DB_PASSWORD: root1234
       DB_NAME:     db_lab_electronica
     ports:
-      - "5000:5000"
+      - "8080:8080"
     depends_on:
       mysql:
         condition: service_healthy

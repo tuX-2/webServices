@@ -21,7 +21,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app.py .
 
 # ── Puerto expuesto ───────────────────────────
-EXPOSE 5000
+EXPOSE 8080
 
 # ── Arranque ──────────────────────────────────
 CMD ["python", "app.py"]
