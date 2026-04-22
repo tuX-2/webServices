@@ -1,0 +1,50 @@
+# ─────────────────────────────────────────────────────────────
+#  NODO: BIBLIOTECA  –  puerto 5002
+#  Uso:  docker compose up --build
+# ─────────────────────────────────────────────────────────────
+version: "3.9"
+
+networks:
+  nodo_net:
+    driver: bridge
+
+volumes:
+  mysql_data:
+
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_biblioteca
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE:      db_biblioteca
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - nodo_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot1234"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    container_name: nodo_biblioteca
+    restart: unless-stopped
+    environment:
+      DB_HOST:     mysql
+      DB_PORT:     3306
+      DB_USER:     root
+      DB_PASSWORD: root1234
+      DB_NAME:     db_biblioteca
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - nodo_net
