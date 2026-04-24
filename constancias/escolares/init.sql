@@ -189,7 +189,7 @@ INSERT INTO usuarios_sistema (username, nombre_completo, email, rol) VALUES
 INSERT INTO alumnos (matricula, nombre, apellido_paterno, apellido_materno, curp, email, telefono, id_carrera, semestre_actual, estatus, fecha_ingreso) VALUES
     ('PE2022001001', 'Sofía',        'Ramírez',   'Torres',    'RATS020315MOXTRS09', 'sofia.ramirez@umar.mx',    '9541234567', 1, 7, 'Activo',       '2022-01-17'),
     ('PE2023001002', 'Miguel Ángel', 'Cruz',      'Hernández', 'CUHM030822MOCRRL07', 'miguel.cruz@umar.mx',      '9547654321', 2, 5, 'Activo',       '2023-01-16'),
-    ('PE2021001003', 'Laura',        'Mendoza',   'Jiménez',   'MEJL010610MOCNDRA04','laura.mendoza@umar.mx',    '9549876543', 1, 9, 'Activo',       '2021-01-18'),
+    ('PE2021001003', 'Laura',        'Mendoza',   'Jiménez',   'MEJL010610MOCNDRA0','laura.mendoza@umar.mx',    '9549876543', 1, 9, 'Activo',       '2021-01-18'),
     ('PE2024001004', 'Carlos',       'López',     'Pérez',     'LOPC040920MOCPRR01', 'carlos.lopez@umar.mx',     '9541111111', 3, 3, 'Activo',       '2024-01-15'),
     ('PE2022001005', 'Valeria',      'Gutiérrez', 'Ruiz',      'GURV020714MOCTER02', 'valeria.gutierrez@umar.mx','9542222222', 5, 7, 'Baja Temporal','2022-01-17');
 
