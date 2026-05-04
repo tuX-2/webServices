@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+
+  orquestador:
+
+    build: ./orquestador
+
+    container_name: orquestador
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      NODO_ESCOLARES: http://192.168.20.119:8080
+      NODO_BIBLIOTECA: http://192.168.20.120:8080
+      NODO_LAB_REDES: http://192.168.20.124:8080
+      NODO_LAB_ELECTRONICA: http://192.168.20.125:8080
+
+
+  frontend:
+
+    build: ./frontend
+
+    container_name: frontend
+
+    ports:
+      - "5000:5000"
+
+    depends_on:
+      - orquestador

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <title>Constancia de No Adeudo</title>
+  <meta charset="UTF-8">
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f3f5f7;
+      margin: 0;
+    }
+
+    .container {
+      width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      margin-top: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 8px;
+      width: 250px;
+      font-size: 16px;
+    }
+
+    .filtros button {
+
+      padding: 8px 14px;
+      margin: 4px;
+      border: none;
+      border-radius: 4px;
+      background: #2c7be5;
+      color: white;
+      cursor: pointer;
+
+    }
+
+    .filtros button:hover {
+      background: #1a5fc4;
+    }
+
+    .info {
+      margin-top: 20px;
+      padding: 10px;
+      background: #eef2f7;
+      border-radius: 6px;
+    }
+
+    table {
+
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+
+    }
+
+    th {
+
+      background: #2c7be5;
+      color: white;
+      padding: 10px;
+
+    }
+
+    td {
+
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+
+    }
+
+    .ok {
+      color: green;
+      font-weight: bold;
+    }
+
+    .bad {
+      color: red;
+      font-weight: bold;
+    }
+
+    .offline {
+      color: gray;
+      font-weight: bold;
+    }
+
+    .btn-pdf{
+    background: linear-gradient(135deg,#d32f2f,#b71c1c);
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all .25s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+
+.btn-pdf:hover{
+    background:linear-gradient(135deg,#b71c1c,#7f0000);
+    transform:translateY(-2px);
+    box-shadow:0 6px 14px rgba(0,0,0,0.25);
+}
+
+.btn-pdf:active{
+    transform:scale(0.97);
+}
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Consulta de Adeudos</h1>
+
+    <div class="input-group">
+
+      <label>Matrícula:</label>
+      <input type="text" id="matricula">
+
+    </div>
+
+    <div class="filtros">
+
+      <button onclick="consultar('todos')">Todos</button>
+      <button onclick="consultar('Escolares')">Escolares</button>
+      <button onclick="consultar('Biblioteca')">Biblioteca</button>
+      <button onclick="consultar('Lab. Redes')">Lab Redes</button>
+      <button onclick="consultar('Lab. Electrónica')">Lab Electrónica</button>
+
+    </div>
+
+
+    <div class="info">
+
+      <p><b>Alumno:</b> <span id="nombre"></span></p>
+      <p><b>Estatus:</b> <span id="estatus"></span></p>
+
+    </div>
+
+    <button type="button" id="btnDescargarPDF" class="btn-pdf">
+      Descargar PDF
+    </button>
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>Departamento</th>
+          <th>Estado</th>
+          <th>Pendientes</th>
+          <th>Detalle</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody id="tabla">
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+  <script src="/static/app.js"></script>
+
+</body>
+
+</html>
